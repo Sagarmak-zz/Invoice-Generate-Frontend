@@ -14,6 +14,9 @@
         <InfoCard :title="products.length" :subtitle="'Products'" />
       </v-col>
     </v-row>
+    <div class="d-flex justify-center font-italic mt-4">
+      More charts coming soon..
+    </div>
   </div>
 </template>
 <script>

@@ -18,70 +18,51 @@ const routes = [
   {
     path: "/",
     name: "login",
-    component: Login,
-    meta: { requiresAuth: false },
-    beforeEnter: (to, from, next) => {
-      if (Auth.isAuthenticated()) {
-        next({
-          name: "home.dashboard"
-        });
-      } else {
-        next();
-      }
-    }
+    component: Login
   },
   {
     path: "/home",
     component: Home,
-    meta: { requiresAuth: true },
     children: [
       {
         path: "/",
         name: "home.dashboard",
-        component: Dashboard,
-        meta: { requiresAuth: true }
+        component: Dashboard
       },
       {
         path: "/bill",
         name: "home.bill",
-        component: Bill,
-        meta: { requiresAuth: true }
+        component: Bill
       },
       {
         path: "/chalan",
         name: "home.chalan",
-        component: Chalan,
-        meta: { requiresAuth: true }
+        component: Chalan
       },
       {
         path: "/customers",
         name: "home.customers",
-        component: Customers,
-        meta: { requiresAuth: true }
+        component: Customers
       },
       {
         path: "/products",
         name: "home.products",
-        component: Products,
-        meta: { requiresAuth: true }
+        component: Products
       },
       {
         path: "/history",
         name: "home.history",
-        component: History,
-        meta: { requiresAuth: true }
+        component: History
       },
       {
         path: "/reports",
         name: "home.reports",
-        component: Reports,
-        meta: { requiresAuth: true }
+        component: Reports
       },
       {
         path: "/settings",
         name: "home.settings",
-        component: Settings,
-        meta: { requiresAuth: true }
+        component: Settings
       }
     ]
   }

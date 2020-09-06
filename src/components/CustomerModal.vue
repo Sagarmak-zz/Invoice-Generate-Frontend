@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center">
     <v-dialog v-model="dialog" persistent max-width="800px">
-      <ValidationObserver ref="userDetails" v-slot="{ invalid, validated, passes, validate }">
+      <ValidationObserver ref="userDetails" v-slot="{ passes }">
         <v-card>
           <v-card-title class="align-center justify-space-between">
             <span class="headline">{{ addModal ? "Add" : "Edit" }} Customer</span>

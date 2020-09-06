@@ -1,7 +1,7 @@
 <template>
   <div class="settings">
     <!-- User Details -->
-    <ValidationObserver ref="userDetails" v-slot="{ invalid, validated, passes, validate }">
+    <ValidationObserver ref="userDetails" v-slot="{ passes }">
       <v-card>
         <v-card-title>Settings</v-card-title>
         <v-divider />
@@ -101,7 +101,7 @@
     </ValidationObserver>
 
     <!-- Admin User -->
-    <ValidationObserver ref="admin" v-slot="{ invalid, validated, passes, validate }">
+    <ValidationObserver ref="admin" v-slot="{ passes }">
       <v-card v-if="showAddNewAdminForm" class="mt-4">
         <v-card-title>
           Add User
@@ -138,7 +138,7 @@
     </ValidationObserver>
 
     <!-- State -->
-    <ValidationObserver ref="state" v-slot="{ invalid, validated, passes, validate }">
+    <ValidationObserver ref="state" v-slot="{ passes }">
       <v-card class="mt-4">
         <div class="d-flex align-center justify-space-between">
           <v-card-title>Manage States</v-card-title>
@@ -190,7 +190,6 @@ import TextField from "@/components/TextField";
 import TextArea from "@/components/TextArea";
 import SelectField from "@/components/SelectField";
 import * as AT from "@/store/actionTypes";
-
 export default {
   name: "Settings",
   components: {
@@ -220,14 +219,12 @@ export default {
       invoiceCopies: null,
       chalanCopies: null,
       isUserDetailsFormLoading: false,
-
       // to add new admin user
       showAddNewAdminForm: false,
       newAdminName: "",
       newAdminEmail: "",
       newAdminPassword: "",
       isAdminFormLoading: false,
-
       // state form
       stateCode: null,
       stateName: "",
@@ -237,7 +234,7 @@ export default {
   },
   computed: {
     userDetails() {
-      return this.$store.getters.userDetails && this.$store.getters.userDetails.user_detail;
+      return this.$store.getters.userDetails;
     },
     stateHeaders() {
       return [
@@ -319,7 +316,6 @@ export default {
           account_no: this.accountNumber
         }
       };
-
       this.$store
         .dispatch(AT.UPDATE_USER_DETAILS, postData)
         .then(res => {
@@ -346,7 +342,6 @@ export default {
         state_code: this.stateCode,
         state_name: this.stateName
       };
-
       this.$store
         .dispatch(AT.ADD_STATE, postData)
         .then(res => {

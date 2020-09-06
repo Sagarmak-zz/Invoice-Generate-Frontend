@@ -2,11 +2,11 @@
   <v-card>
     <v-navigation-drawer v-model="drawer" app clipped :mini-variant.sync="mini" permanent>
       <v-list-item>
-        <v-list-item-avatar>
+        <v-list-item-avatar class="mr-2">
           <v-icon>fas fa-user-circle</v-icon>
         </v-list-item-avatar>
 
-        <v-list-item-title>{{ userDetails.username }}</v-list-item-title>
+        <v-list-item-title>{{ userDetails }}</v-list-item-title>
 
         <v-btn icon @click="mini = !mini">
           <v-icon>fas fa-chevron-left</v-icon>
@@ -53,7 +53,7 @@ export default {
   },
   computed: {
     userDetails() {
-      return this.$store.getters.userDetails;
+      return "Sagar Makhija";
     }
   },
   methods: {

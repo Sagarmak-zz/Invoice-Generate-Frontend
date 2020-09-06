@@ -103,7 +103,7 @@
 
         <!-- Form for adding particulars -->
         <v-card-text style="position: relative;">
-          <ValidationObserver ref="itemDetails" v-slot="{ invalid, validated, passes, validate }">
+          <ValidationObserver ref="itemDetails" v-slot="{ passes }">
             <v-row>
               <v-col>
                 <SelectField

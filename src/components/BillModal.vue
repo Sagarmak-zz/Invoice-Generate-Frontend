@@ -50,7 +50,6 @@ export default {
   methods: {
     printBill() {
       const element = this.$refs.invoice.$refs.printable_invoice;
-      console.log("printBill -> element", element);
       const options = {
         html2canvas: {
           scrollX: 0,
