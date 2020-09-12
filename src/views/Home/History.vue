@@ -9,7 +9,7 @@
         </div>
         <v-btn-toggle v-model="type" tile color="primary" @change="resetExpanded">
           <v-btn value="bills">
-            Bills
+            Bill
           </v-btn>
 
           <v-btn value="chalan">

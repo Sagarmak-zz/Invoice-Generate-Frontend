@@ -31,6 +31,9 @@
                   @keyup.enter="passes(login)"
                 />
               </v-card-text>
+              <v-card-text class="py-0 text-center font-italic">
+                *Please sign in with any valid email-password to continue
+              </v-card-text>
               <v-card-actions>
                 <v-spacer />
                 <v-btn :loading="isLoading" color="primary" @click="passes(login)">Login</v-btn>
